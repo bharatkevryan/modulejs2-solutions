@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>module2-solution</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body ng-app = "myApp">
+	<div class="page-header text-center" >
+        <h1>SHOPPING LIST <small>module 2</small></h1>
+    </div>
+    
+<div class="row">
+    <div class="col-md-6 tile">
+            <h2>To buy</h1>
+        <div ng-controller="shoppingListController as list1">
+    		<ol>
+    			<li ng-repeat="item in list1.items ">
+    				{{item.quantity}} of {{item.name}} 
+    				<button ng-click="list1.addToBought($index)" <button type="button" class="btn btn-success">Buy</button><br>
+    			</li>
+    		</ol>
+            <h4 ng-hide="list1.items != 0">*nothing to buy*</h4>
+        </div>
+    </div>
+    <div class="col-md-6 tile">
+
+            <h2>Already Bought</h2>
+        <div ng-controller="boughtController as bought">
+    		<ol>
+
+    			<li ng-repeat="item in bought.items">
+                	{{item.quantity}} of {{item.name}} is bought
+    			</li>
+    		</ol>
+             <h4 ng-hide="bought.items != 0">*Nothing is Bought*</h4>
+        </div>
+
+    </div>
+    		
+    	
+</div>
+
+
+</body>
+</html>
